@@ -23,9 +23,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
+    <section className={`relative w-full ${isMobile ? 'h-auto min-h-screen' : 'h-screen'} mx-auto ${isMobile ? 'flex flex-col' : ''}`}>
       <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+        className={`${isMobile ? 'relative' : 'absolute'} inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5 ${isMobile ? 'z-10 mb-8' : ''}`}
       >
         <div className='flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
@@ -44,11 +44,11 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className={`${isMobile ? 'h-[60vh]' : 'h-full'} w-full`}>
+      <div className={`${isMobile ? 'relative h-[60vh] mt-4 flex items-center justify-center' : 'absolute inset-0 h-full'} w-full`}>
         <ComputersCanvas />
       </div>
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+      <div className={`${isMobile ? 'relative mt-8' : 'absolute'} xs:bottom-10 bottom-32 w-full flex justify-center items-center`}>
         <a href='#about'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div
